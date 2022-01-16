@@ -1,0 +1,8 @@
+{
+  "*.sass": "yarn lint:stylelint",
+  "*.css": "yarn lint:prettier",
+  "*.{tsx,vue,ts,js}": [
+    "yarn lint:eslint",
+    "yarn lint:prettier"
+  ]
+}

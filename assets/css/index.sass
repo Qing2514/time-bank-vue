@@ -1,0 +1,39 @@
+*
+  @apply text-gray-600
+
+  &::selection
+    @apply bg-orange-200 text-orange-800
+
+  &::-webkit-scrollbar
+    @apply w-2 h-0
+
+  &::-webkit-scrollbar-thumb
+    @apply rounded-full bg-gray-500 bg-opacity-50
+
+  &::-webkit-scrollbar-track
+    @apply bg-transparent
+
+.no-scroll::-webkit-scrollbar
+  @apply hidden
+
+.ripple
+  transform: translate3d(0, 0, 0)
+  @apply relative overflow-hidden
+
+  &::after
+    background-image: radial-gradient(circle, #000 10%, transparent 10.01%)
+    content: ""
+    transform: scale(10, 10)
+    transition: transform .5s, opacity 1s
+    @apply block absolute w-full h-full top-0 left-0 pointer-events-none bg-no-repeat bg-center opacity-0
+
+  &:active::after
+    transform: scale(0, 0)
+    transition: 0s
+    @apply opacity-20
+
+.title-link
+  @apply relative z-10 before:bg-orange-300 before:bg-opacity-0 before:block before:absolute before:h-2 before:w-full before:left-0 before:bottom-1 before:-z-10 before:transition-all
+
+  &:hover
+    @apply before:bg-opacity-80
